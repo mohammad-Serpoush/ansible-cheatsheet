@@ -1,0 +1,12 @@
+---
+- name: test play
+  hosts: all
+  become: true
+  tasks:
+    - name: running apt update command
+      apt:
+        update_cache: yes
+    - name: install haveged package
+      apt:
+        name: haveged
+        state: present
