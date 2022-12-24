@@ -9,11 +9,18 @@
     - name: printing package_name
       debug:
         msg: Tha package name is {{ package_name }}
-    
+    # - name: print host name
+    #   debug:
+    #     msg: "inventory host name is {{ inventory_hostname }}"
+    # - name: print groups
+    #   debug:
+    #     msg: "groups is {{ groups }}"
+    - debug:
+        var: hostvars
     - name: running apt update command
       apt:
         update_cache: yes
-      
+
     - name: install haveged package
       apt:
         name: "{{ package_name }}"
