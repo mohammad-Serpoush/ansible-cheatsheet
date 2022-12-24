@@ -2,13 +2,13 @@
 - name: test play
   hosts: all
   become: true
-  vars:
-    package_name: haveged
+  vars_files:
+    - myvars.yaml
 
   tasks:
     - name: printing package_name
       debug:
-        msg: Tha package nam e is {{ package_name }}
+        msg: Tha package name is {{ package_name }}
     
     - name: running apt update command
       apt:
