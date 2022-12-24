@@ -2,11 +2,19 @@
 - name: test play
   hosts: all
   become: true
+  vars:
+    package_name: haveged
+
   tasks:
+    - name: printing package_name
+      debug:
+        msg: Tha package nam e is {{ package_name }}
+    
     - name: running apt update command
       apt:
         update_cache: yes
+      
     - name: install haveged package
       apt:
-        name: haveged
+        name: "{{ package_name }}"
         state: present
