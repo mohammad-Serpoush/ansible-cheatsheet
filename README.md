@@ -14,19 +14,19 @@
 - Using automation tools
 - Easy to manage
 
-###IAC Methods
+### IAC Methods
 - **Pull method:** Server pulls configuration from the agent.
 - **Push method:** Agent pushes configurations to servers.
 
 
-####Why Ansible:
+#### Why Ansible:
 - Agent less
 - Ease of use
 - Support both approaches and both methods.
 
 
 
-#####Major Ansible command's
+##### Major Ansible command's
 ```
 ansible
 ```
@@ -36,7 +36,7 @@ ansible-playbook
 
 ![Ansible Architecture](./arch.png)
 
-###Components
+### Components
 
 
 - **Control node:** install ansible on this
@@ -46,6 +46,6 @@ ansible-playbook
 - **Plugins:** some modules that add capabilities to the ansible and control nodes.
 - **Ansible vault:** for storing credentials.
 
-######The connection plugin's default is ssh.
+###### The connection plugin's default is ssh.
 
 
