@@ -1,30 +1,51 @@
-**Define Variable:**
-- vars
-- var_files
+###IAC Approaches
 
-**Variables:**
-- list
 
+**Impretive**
+- Step-by-step configuration
+- Classic approach
+- Using scripting languages
+- Hard to manage
+
+
+**Declarative**
+- Desired state
+- Modern Approach
+- Using automation tools
+- Easy to manage
+
+###IAC Methods
+- **Pull method:** Server pulls configuration from the agent.
+- **Push method:** Agent pushes configurations to servers.
+
+
+####Why Ansible:
+- Agent less
+- Ease of use
+- Support both approaches and both methods.
+
+
+
+#####Major Ansible command's
 ```
-name:["john" , "Doe"]
+ansible
+```
+```
+ansible-playbook
 ```
 
-- list
+![Ansible Architecture](./arch.png)
 
-```
-name:
-  - john
-  - doe
-```
-- dict
-```
-mydict:
-    key1:"value1"
-    key2:"value2"
-```
+###Components
 
-**Predefiend Variables**
-- inventory_hostname
-- groups
-- hostvars
-- ansible_facts : ansible_facts["all_ipv4_addresses"][0]
+
+- **Control node:** install ansible on this
+- **Inventory:** name and information about managed nodes.
+- **Core modules:** some modules that the ansible team provides to install.
+- **Custom modules:** some modules that some peoples write.
+- **Plugins:** some modules that add capabilities to the ansible and control nodes.
+- **Ansible vault:** for storing credentials.
+
+######The connection plugin's default is ssh.
+
+
