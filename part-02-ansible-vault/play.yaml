@@ -1,0 +1,14 @@
+---
+  - name: test play
+    hosts: all
+    vars_files:
+      - secret.yaml
+
+    vars:
+      server_username: "{{ vault_server_username }}"
+      server_password: "{{ vault_server_password }}"
+    
+    tasks:
+      - debug:
+          msg: Server username is {{ server_username }} and password is {{ server_password }}
+    
