@@ -1,0 +1,49 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Check docker installation
+      shell: "which docker"
+      ignore_errors: true
+      register: result
+      tags:
+        - output
+        - check
+
+    - name: Skip on ready nodes
+      meta: end_host
+      when: result.failed is true
+
+    - name: Delete old gpg key
+      shell: "rm /etc/apt/keyrings/docker.gpg"
+
+    - name: Install prerequisites
+      apt:
+        name:
+          - ca-certificates
+          - curl
+          - gnupg
+          - lsb-release
+
+    - name: Create keyrings
+      file:
+        path: /etc/apt/keyrings
+        state: directory
+
+    - name: key
+      shell: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg"
+
+    - name: add keys
+      shell: 'echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null '
+
+    - name: apt update
+      apt:
+        update_cache: true
+
+    - name: install docker
+      apt:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-compose-plugin

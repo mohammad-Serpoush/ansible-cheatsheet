@@ -23,5 +23,5 @@
 
     - name: install haveged package
       apt:
-        name: "{{ package_name }}"
-        state: present
+        name:
+          - 
