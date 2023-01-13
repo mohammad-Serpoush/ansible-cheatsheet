@@ -1,0 +1,16 @@
+- hosts: all
+  become: true
+  tasks:
+    - name: install htop
+      apt:
+        name: htop
+      notify: notify user
+ 
+    - name: install curl
+      apt:
+        name: curl
+  
+  handlers:
+    - name: notify user
+      debug:
+        msg: installed successfully
