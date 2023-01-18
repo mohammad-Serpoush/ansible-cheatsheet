@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: debug
+      debug:
+        msg: > 
+          {% if ansible_hostname == "node01" %}
+              This is node001
+          {% endif %}
