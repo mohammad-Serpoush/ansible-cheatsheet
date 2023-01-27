@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - name: get red hat release files
+      fetch:
+        src: /etc/redhat-release
+        dest: /tmp/redhat-release

@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - name: assemble 1.txt and 2.txt
+      assemble: 
+        src: source
+        dest: destination

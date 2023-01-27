@@ -1,0 +1,5 @@
+- hosts: all
+  tasks:
+    - name: Wait for checking port 80 is open to use
+      wait_for:
+        port: 80

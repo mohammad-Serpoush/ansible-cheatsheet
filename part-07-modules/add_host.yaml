@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: add two new group
+      add_host:
+        name: ubuntu1
+
+    - name: ping ubuntu1
+      ping:

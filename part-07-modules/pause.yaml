@@ -1,0 +1,8 @@
+- hosts: all
+  tasks:
+    - name: pause for 10 seconds
+      pause:
+        seconds: 5  
+    - name: wait for human checking
+      pause:
+        prompt: Please check everything is ok and press ENTER to continue.  

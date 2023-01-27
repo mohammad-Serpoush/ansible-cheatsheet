@@ -1,0 +1,23 @@
+- hosts: all
+  tasks:
+    - name: set fact
+      set_fact:
+        our_fact: Hello Ansible
+        ansible_distribution: "{{ ansible_distribution | upper }}"
+    - name: show fact
+      debug:
+        msg: "{{ ansible_distribution }}  : {{ our_fact }}"
+
+    - name: set base on OS distribution
+      set_fact:
+        webserver_application_user: root
+      when: ansible_distribution == "CentOS"
+
+    - name: set base on OS distribution
+      set_fact:
+        webserver_application_user: nginx
+      when: ansible_distribution == "UBUNTU"
+
+    - name: show web server application user
+      debug:
+        msg: "{{ webserver_application_user }}"
