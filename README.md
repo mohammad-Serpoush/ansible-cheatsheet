@@ -39,10 +39,10 @@ ansible-playbook
 ### Components
 
 
-- **Control node:** install ansible on this
+- **Control node:** we install ansible on this node.
 - **Inventory:** name and information about managed nodes.
 - **Core modules:** some modules that the ansible team provides to install.
-- **Custom modules:** some modules that some peoples write.
+- **Custom modules:** some modules that some people developed and published.
 - **Plugins:** some modules that add capabilities to the ansible and control nodes.
 - **Ansible vault:** for storing credentials.
 
