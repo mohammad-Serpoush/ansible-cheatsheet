@@ -1,0 +1,13 @@
+- hosts: all
+  tasks:
+    - name: set register
+      command: hostname -s
+      register: hostname_output
+
+    - name: show register
+      debug:
+        var: hostname_output
+
+    - name: show register stdout
+      debug:
+        var: hostname_output.stdout

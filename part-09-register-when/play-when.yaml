@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+    - name: get hostname in ubuntu
+      command: hostname -s
+      register: hostname_output
+      when: ansible_distribution == "Ubuntu"
+
+    - name: show host name register
+      debug:
+        msg: "This is {{ hostname_output.stdout }} node"
