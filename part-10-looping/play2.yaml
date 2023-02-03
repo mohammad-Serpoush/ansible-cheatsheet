@@ -1,0 +1,13 @@
+- hosts: all
+  tasks:
+    - name: say hello
+      debug:
+        msg: "Hello {{ item.value.firstname }}!"
+      with_dict:
+        james:
+          firstname: james
+        alice:
+          firstname: alice
+        bob:
+          firstname: bob
+        

@@ -1,0 +1,14 @@
+- hosts: all
+  tasks:
+    - name: say hello
+      debug:
+        msg: "Hello {{ item.1 | title }} {{ item.0.surname }}!"
+      with_subelements:
+        - family:
+            surname: Holmes
+            members:
+              - james
+              - sherlock
+              - bob
+              - linus
+        - members
