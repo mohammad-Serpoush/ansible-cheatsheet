@@ -1,0 +1,13 @@
+- hosts: all
+  tasks:
+    - name: task 1
+      command: /bin/sleep 5
+      when: ansible_hostname == 'node01'
+      async: 10
+      poll: 1
+
+    - name: task 2
+      command: /bin/sleep 5
+      when: ansible_hostname == 'cicd'
+      async: 10
+      poll: 1

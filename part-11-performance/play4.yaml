@@ -1,0 +1,21 @@
+- hosts: all
+  gather_facts: false
+  serial: 2
+  tasks:
+    - name: task 1
+      command: /bin/sleep 5
+    
+    - name: task 2
+      command: /bin/sleep 5
+    
+    - name: task 3
+      command: /bin/sleep 5
+    
+    - name: task 4
+      command: /bin/sleep 5
+    
+    - name: task 5
+      command: /bin/sleep 5
+    
+    - name: task 6
+      command: /bin/sleep 5
